@@ -12,8 +12,9 @@ from pyecharts.charts import Line
 from pyecharts.charts import Pie
 from pyecharts.charts import Scatter
 from pyecharts.charts import Boxplot
-from pyecharts.charts import HeatMap
 from pyecharts.charts import Radar
+
+
 # 抓取网页文本内容
 def crawl_text(url):
     try:
@@ -63,7 +64,7 @@ def draw_bar_chart(word_counts):
     return bar
 
 
-# 绘制其他6种图形（这里简单示例折线图、饼图、散点图、箱线图、热力图、雷达图）
+# 绘制其他6种图形（这里简单示例折线图、饼图、散点图、箱线图、雷达图）
 def draw_line_chart(word_counts):
     sorted_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)[:20]
     words, counts = zip(*sorted_words)
@@ -111,18 +112,6 @@ def draw_boxplot_chart(word_counts):
     return boxplot
 
 
-def draw_heatmap_chart(word_counts):
-    sorted_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)[:20]
-    words, counts = zip(*sorted_words)
-    heatmap = (
-        HeatMap()
-        .add_xaxis(words)
-        .add_yaxis("词频", [[word, count] for word, count in zip(words, counts)])
-        .set_global_opts(title_opts=opts.TitleOpts(title="词频热力图"))
-    )
-    return heatmap
-
-
 def draw_radar_chart(word_counts):
     sorted_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)[:20]
     words, counts = zip(*sorted_words)
@@ -141,7 +130,7 @@ def main():
     st.sidebar.title("图形选择")
     chart_type = st.sidebar.selectbox(
         "选择图形类型",
-        ["词云", "条形图", "折线图", "饼图", "散点图", "箱线图", "热力图", "雷达图"]
+        ["词云", "条形图", "折线图", "饼图", "散点图", "箱线图", "雷达图"]
     )
 
     st.title("文章词频分析")
@@ -168,9 +157,6 @@ def main():
             elif chart_type == "箱线图":
                 boxplot_chart = draw_boxplot_chart(word_counts)
                 components.html(boxplot_chart.render_embed(), height=400)
-            elif chart_type == "热力图":
-                heatmap_chart = draw_heatmap_chart(word_counts)
-                components.html(heatmap_chart.render_embed(), height=400)
             elif chart_type == "雷达图":
                 radar_chart = draw_radar_chart(word_counts)
                 components.html(radar_chart.render_embed(), height=400)
