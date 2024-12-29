@@ -13,8 +13,7 @@ from pyecharts.charts import Pie
 from pyecharts.charts import Scatter
 from pyecharts.charts import Boxplot
 from pyecharts.charts import Radar
-
-
+#提交
 # 抓取网页文本内容
 def crawl_text(url):
     try:
