@@ -142,25 +142,25 @@ def main():
             word_counts = process_text(text)
             if chart_type == "词云":
                 wordcloud = draw_wordcloud(word_counts)
-                components.html(wordcloud.render_embed(), height=4000)
+                components.html(wordcloud.render_embed(), height=4000,width=1000)
             elif chart_type == "条形图":
                 bar_chart = draw_bar_chart(word_counts)
-                components.html(bar_chart.render_embed(), height=4000)
+                components.html(bar_chart.render_embed(), height=4000,width=1000)
             elif chart_type == "折线图":
                 line_chart = draw_line_chart(word_counts)
-                components.html(line_chart.render_embed(), height=4000)
+                components.html(line_chart.render_embed(), height=4000,width=1000)
             elif chart_type == "饼图":
                 pie_chart = draw_pie_chart(word_counts)
-                components.html(pie_chart.render_embed(), height=4000)
+                components.html(pie_chart.render_embed(), height=4000,width=1000)
             elif chart_type == "散点图":
                 scatter_chart = draw_scatter_chart(word_counts)
-                components.html(scatter_chart.render_embed(), height=4000)
+                components.html(scatter_chart.render_embed(), height=4000,width=1000)
             elif chart_type == "箱线图":
                 boxplot_chart = draw_boxplot_chart(word_counts)
-                components.html(boxplot_chart.render_embed(), height=4000)
+                components.html(boxplot_chart.render_embed(), height=4000,width=1000)
             elif chart_type == "雷达图":
                 radar_chart = draw_radar_chart(word_counts)
-                components.html(radar_chart.render_embed(), height=4000)
+                components.html(radar_chart.render_embed(), height=4000,width=1000)
 
 
 if __name__ == "__main__":
