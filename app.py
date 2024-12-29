@@ -19,7 +19,7 @@ from pyecharts.charts import Radar
 def crawl_text(url):
     try:
         response = requests.get(url)
-        response.encoding = 'utf - 8'
+        response.encoding = 'utf-8'
         soup = BeautifulSoup(response.text, 'html.parser')
         body_content = soup.find('body')
         if body_content:
